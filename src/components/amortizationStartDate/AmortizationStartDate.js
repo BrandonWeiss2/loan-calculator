@@ -12,8 +12,9 @@ export default class AmortizationStartDate extends Component {
   }
 
   render() {
+    console.log('payoffDate', this.context.payoffDate)
     return (
-      <div>
+      <div className='amortizationStartDateContainer'>
         <Input 
           inputType={'date'}
           inputId={'loanStartDate'}
@@ -21,7 +22,12 @@ export default class AmortizationStartDate extends Component {
           labelText={'Start Date'}
           value={this.context.loanStartDate}
           onChange={this.onInputChange}
+          inputContainerClass={'loanStartDateInputContainer'}
         />
+        <div className='payoffDateContainer'>
+          <h3>Estimated Payoff Date</h3>
+          <p>{this.context.payoffDate}</p>
+        </div>
       </div>
     )
   }

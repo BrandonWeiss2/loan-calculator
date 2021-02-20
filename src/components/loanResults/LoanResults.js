@@ -35,18 +35,18 @@ export default class LoanResults extends Component {
     return (
       <div className='loanResultsContainer'>
         <div>
-          <p>Monthly Payments</p>
+          <h3>Monthly Payments</h3>
           <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.monthlyPayment)}</p>
         </div>
         <div>
-          <p>Total Principal Paid</p>
+          <h3>Total Principal Paid</h3>
           <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.totalPrincipal)}</p>
         </div>
         <div>
-          <p>Total Interest Paid</p>
+          <h3>Total Interest Paid</h3>
           {this.renderTotalInterest()}
         </div>
-        {this.renderShowAmortButton()}
+        {/* {this.renderShowAmortButton()} */}
       </div>
     )
   }

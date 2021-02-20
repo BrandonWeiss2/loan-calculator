@@ -9,12 +9,15 @@ const Context = React.createContext({
   totalInterestPaid: '',
   showAmortizationTable: '',
   amortizationTable: [],
+  showExtraPayments: '',
+  payoffDate: '',
   handleSetLoanDetails: () => {},
   handleSetLoanStartDate: () => {},
   handleSetExtraLoanDetails: () => {},
   handlesSetTotalInterestPaid: () => {},
   handleSetShowAmortizationTable: () => {},
   handleCalculateAmortization: () => {},
+  handleSetShowExtraPayments: () => {},
 })
 export default Context
 
@@ -60,6 +63,8 @@ export class Provider extends Component {
       totalInterestPaid: '',
       showAmortizationTable: '',
       amortizationTable: [],
+      showExtraPayments: false,
+      payoffDate: '',
     };
   }
 
@@ -183,6 +188,7 @@ export class Provider extends Component {
       //if remaining balance is 0, the loop ends
       if(remainingBalance === 0) {
         this.handlesSetTotalInterestPaid(totalInterest)
+        this.calculateEstimatedPayoffDate(this.state.loanStartDate.slice(8,10), paymentDateMonth, paymentDateYear)
         break;
       }
 
@@ -203,11 +209,79 @@ export class Provider extends Component {
         paymentDateMonth++
       }
     }
-
     console.log('handleCalculateAmortization', amort)
     this.setState({
       amortizationTable: amort
     })
+  }
+
+  calculateEstimatedPayoffDate = (day, month, year) => {
+    let payoffDay = day
+    let payoffMonth 
+    switch (month) {
+      case 1:
+        payoffMonth = 'January'
+        break
+      case 2:
+        payoffMonth = 'February'
+        if ((year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0)) {
+          if (day > 29) {
+            payoffDay = 29
+          } 
+        } else if (day > 28) {
+          payoffDay = 28
+        }
+        break
+      case 3:
+        payoffMonth = 'March'
+        break
+      case 4:
+        payoffMonth = 'April'
+        if (day > 30) {
+          payoffDay = 30
+        }
+        break
+      case 5:
+        payoffMonth = 'May'
+        break
+      case 6:
+        payoffMonth = 'June'
+        if (day > 30) {
+          payoffDay = 30
+        }
+        break
+      case 7:
+        payoffMonth = 'July'
+        break
+      case 8:
+        payoffMonth = 'August'
+        break
+      case 9:
+        payoffMonth = 'September'
+        if (day > 30) {
+          payoffDay = 30
+        }
+        break
+      case 10:
+        payoffMonth = 'October'
+        break
+      case 11:
+        payoffMonth = 'November'
+        if (day > 30) {
+          payoffDay = 30
+        }
+        break
+      case 12:
+        payoffMonth = 'December'
+        break
+    }
+    let payoffDate = `${payoffMonth} ${payoffDay}, ${year}`
+    console.log('payoffdate', payoffDate)
+    this.setState({ payoffDate: payoffDate})
+  }
+
+  handleSetShowExtraPayments = (val) => {
+    this.setState({ showExtraPayments: val })
   }
 
   render() {
@@ -220,12 +294,15 @@ export class Provider extends Component {
       totalInterestPaid: this.state.totalInterestPaid,
       showAmortizationTable: this.state.showAmortizationTable,
       amortizationTable: this.state.amortizationTable,
+      showExtraPayments: this.state.showExtraPayments,
+      payoffDate: this.state.payoffDate,
       handleSetLoanDetails: this.handleSetLoanDetails,
       handleSetLoanStartDate: this.handleSetLoanStartDate,
       handleSetExtraLoanDetails: this.handleSetExtraLoanDetails,
       handlesSetTotalInterestPaid: this.handlesSetTotalInterestPaid,
       handleSetShowAmortizationTable: this.handleSetShowAmortizationTable,
       handleCalculateAmortization: this.handleCalculateAmortization,
+      handleSetShowExtraPayments: this.handleSetShowExtraPayments,
     }
     return (
       <Context.Provider value={value}>
