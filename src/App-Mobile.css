@@ -1,0 +1,293 @@
+@media (max-width: 763.9px) {
+  .loanFormAndResultsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  /* loan calculator form styling */
+  .calculatorContainer {
+    margin: auto;
+    width: 251px;
+    height: 360px;
+  }
+
+  .loanCalculatorForm {
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 20px;
+    margin: 20px 5px 20px 5px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 20px rgba(0,0,0, 0.2), 0px 0px 50px rgba(0,0,0, 0.2);
+    padding-bottom: 20px;
+  }
+
+  .loanCalculatorForm h3{
+    color: #404345;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 31px;
+    margin: 0;
+    padding: 20px 20px;
+    text-align: center;
+  }
+
+  .loanAmountInputContainer, .loanTermMonthsInputContainer, .interestRateInputContainer, .extraMonthlyPaymentInputContainer, .extraYearlyPaymentContainer, .extraOneTimePaymentContainer {
+    margin-bottom: 5px;
+  }
+
+  #loanAmount, #loanTermMonths, #interestRate, #extraMonthlyPayment, #extraYearlyPayment, #extraOneTimePayment {
+    border: 1px solid #d1d7db;
+    border-radius: 2px;
+    height: 34px;
+    margin: 5px 0;
+    width: 225px;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 20px;
+    color: #404345;
+  }
+
+  .loanAmountLabel, .loanTermMonthsLabel, .interestRateLabel {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+  }
+
+  .loanCalculateButtonContainer {
+    display: flex;
+  }
+
+  .loanCalculateButton {
+    margin: auto;
+    background-color: #3ddb93;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 40px;
+    padding: 0 70px;
+    font-size: 16px;
+  }
+
+  /* loan results  styling */
+
+  .loanCalculatorResultsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .loanResultsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loanResultsContainer h3 {
+    padding: 0 0;
+    margin-top: 0;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .loanResultsContainer p {
+    padding: 0 0 10px 0;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    background-color: #4a7fb0;
+    border-radius: 15px;
+    max-width: 125px;
+  }
+
+  /* extra payments styling */
+
+  .loanCalculatorResultsContainer select {
+    background: #fff;
+    border: 1px solid #d1d7db;
+    border-radius: 2px;
+    height: 34px;
+    margin: 2px 0 5px 0;
+    padding: 0 10px;
+    vertical-align: middle;
+  }
+
+  .extraMonthlyPaymentInputContainer, .extraYearlyPaymentInputContainer, .extraOneTimePaymentInputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showExtraPaymentsButton {
+    color: #20a7e2;
+    background-color: white !important;
+    border: none;
+    margin: 10px 0
+  }
+
+  .angleUpIcon, .angleDownIcon {
+    padding-left: 5px;
+  }
+
+  .selectContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .selectContainer p {
+    margin: 0;
+    padding-right: 5px;
+  }
+
+  .yearSelect {
+    margin-left: 5px !important;
+  }
+
+  /* amortization table styling */
+  .amortizationTableContainer {
+    visibility: hidden;
+    margin: 20px auto 20px auto;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 20px rgba(0,0,0, 0.2), 0px 0px 50px rgba(0,0,0, 0.2);
+  }
+
+  .amortizationTableButtonContainer {
+
+  }
+
+  .amortTableContainer {
+    padding: 20px;
+  }
+
+  .showAmortTableButton {
+    background-color: white;
+    width: 100%;
+    border: none;
+    padding: 20px 20px;
+    font-size: 24px;
+    border-radius: 30px;
+  }
+
+  .loanStartDateInputContainer {
+    padding-left: 20px;
+  }
+
+  .loanStartDateInputContainer input {
+    display: block;
+    border: 1px solid #d1d7db;
+    border-radius: 2px;
+    height: 34px;
+    margin: 5px 0;
+    width: 225px;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 20px;
+    color: #404345;
+  }
+
+  .showAmortTableButton div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .amortTableHeaderContainer, .amortTableRow {
+    display: flex ;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .amortTableHeader, .amortTableCell {
+    padding: 10px ;
+    width: 100px;
+  }
+
+  #amortTableHeader1 {
+    width: 120px;
+    padding-left: 0;
+  }
+
+  #amortTableHeader6 {
+    padding-right: 0;
+  }
+
+  .amortTableColumn1 {
+    width: 120px;
+    padding-left: 0;
+  }
+
+  .amortTableColumn6 {
+    padding-right: 0;
+  }
+
+
+  #amortTableHeader2, #amortTableHeader3, #amortTableHeader4, #amortTableHeader5, #amortTableHeader6 {
+    text-align: right;
+  }
+
+  .amortTableColumn2, .amortTableColumn3, .amortTableColumn4, .amortTableColumn5, .amortTableColumn6 {
+    text-align: right;
+  }
+
+  /* amortization start date styling */
+  .amortizationStartDateContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .payoffDateContainer {
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payoffDateContainer p {
+    margin: 0;
+  }
+
+  /* styling for scrollbar  */
+  .simplebar-scrollbar:before {
+    opacity: .5;
+  }
+
+  /* styling for slider element */
+  .slider {
+    -webkit-appearance: none;
+    width: 225px;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .slider:hover {
+    opacity: 1;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #3ddb93;
+    cursor: pointer;
+  }
+
+
+  canvas{
+
+    width: 400px !important;
+    height: 200px !important;
+    margin: 0 auto 20px auto;
+
+  }
+}

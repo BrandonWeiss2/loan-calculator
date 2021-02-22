@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chart from "chart.js";
 
 const Context = React.createContext({
   loanDetails: {},
@@ -89,7 +90,11 @@ export class Provider extends Component {
     this.setState({ showAmortizationTable: val })
   }
 
-  handleCalculateAmortization = () => {
+  handleSetShowExtraPayments = (val) => {
+    this.setState({ showExtraPayments: val })
+  }
+
+  handleCalculateAmortization = async () => {
     //sets variables for amortization calculation
     let amort = []
     let totalPayment = this.state.loanDetails.monthlyPayment
@@ -186,9 +191,9 @@ export class Provider extends Component {
       })
 
       //if remaining balance is 0, the loop ends
-      if(remainingBalance === 0) {
-        this.handlesSetTotalInterestPaid(totalInterest)
-        this.calculateEstimatedPayoffDate(this.state.loanStartDate.slice(8,10), paymentDateMonth, paymentDateYear)
+      if(remainingBalance < .01) {
+        await this.handlesSetTotalInterestPaid(totalInterest)
+        await this.calculateEstimatedPayoffDate(this.state.loanStartDate.slice(8,10), paymentDateMonth, paymentDateYear)
         break;
       }
 
@@ -210,7 +215,7 @@ export class Provider extends Component {
       }
     }
     console.log('handleCalculateAmortization', amort)
-    this.setState({
+    await this.setState({
       amortizationTable: amort
     })
   }
@@ -276,13 +281,11 @@ export class Provider extends Component {
         break
     }
     let payoffDate = `${payoffMonth} ${payoffDay}, ${year}`
-    console.log('payoffdate', payoffDate)
     this.setState({ payoffDate: payoffDate})
   }
 
-  handleSetShowExtraPayments = (val) => {
-    this.setState({ showExtraPayments: val })
-  }
+
+
 
   render() {
     const value = {

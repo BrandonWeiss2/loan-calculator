@@ -63,10 +63,10 @@ export default class AmortizationTable extends Component {
 
   render() {
     let buttonClass = '' 
-    if (this.context.showAmortizationTable) {
+    if (!this.context.showAmortizationTable) {
       buttonClass = <div>Hide Amortization Table<span><FontAwesomeIcon className='angleUpIcon' icon={faAngleUp} /></span></div>
     } else {
-      buttonClass = <div>Show Amortization Table<span><FontAwesomeIcon className='angleDownIcon' icon={faAngleDown} /></span></div>
+      buttonClass = <div>Show Amortization Table<span><FontAwesomeIcon className='angleUpIcon' icon={faAngleDown} /></span></div>
     }
     return (
       <div className='amortizationTableContainer'>

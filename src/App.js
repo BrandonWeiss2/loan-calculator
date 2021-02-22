@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoanCalculator from './components/loanCalculator/LoanCalculator'
-import './App.css'
+import './App-Desktop.css'
+import './App-Mobile.css'
 
 export default class App extends Component {
   render() {

@@ -7,9 +7,27 @@ export default class LoanResults extends Component {
 
   renderTotalInterest = () => {
     if (this.context.totalInterestPaid) {
-      return <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.totalInterestPaid)}</p>
+      return (
+        <>
+          {typeof (this.context.loanDetails.monthlyPayment) === 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.totalInterestPaid)}</p>
+          }
+          {typeof (this.context.loanDetails.monthlyPayment) !== 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(0)}</p>
+          }
+        </>
+      )
     } else {
-      return <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.totalInterest)}</p>
+      return (
+        <>
+        {typeof (this.context.loanDetails.monthlyPayment) === 'number' &&
+          <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.totalInterest)}</p>
+        }
+        {typeof (this.context.loanDetails.monthlyPayment) !== 'number' &&
+          <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(0)}</p>
+        }
+      </>
+      )
     }
   }
 
@@ -36,11 +54,21 @@ export default class LoanResults extends Component {
       <div className='loanResultsContainer'>
         <div>
           <h3>Monthly Payments</h3>
-          <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.monthlyPayment)}</p>
+          {typeof(this.context.loanDetails.monthlyPayment) === 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.monthlyPayment)}</p>
+          }
+          {typeof(this.context.loanDetails.monthlyPayment) !== 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(0)}</p>
+          }
         </div>
         <div>
           <h3>Total Principal Paid</h3>
-          <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.totalPrincipal)}</p>
+          {typeof(this.context.loanDetails.monthlyPayment) === 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.context.loanDetails.totalPrincipal)}</p>
+          }
+          {typeof(this.context.loanDetails.monthlyPayment) !== 'number' &&
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(0)}</p>
+          }
         </div>
         <div>
           <h3>Total Interest Paid</h3>

@@ -11,9 +11,9 @@ export default class ExtraPayments extends Component {
   static contextType = Context
 
   state = {
-    extraMonthlyPayment: 0,
-    extraYearlyPayment: 0,
-    extraOneTimePayment: 0,
+    extraMonthlyPayment: '',
+    extraYearlyPayment: '',
+    extraOneTimePayment: '',
   }
 
   //makes sure any dollar amount entered is displayed with correct format
@@ -26,7 +26,7 @@ export default class ExtraPayments extends Component {
 
   render() {
     let buttonClass = '' 
-    if (!this.context.showExtraPayments) {
+    if (this.context.showExtraPayments) {
       buttonClass = <div>Extra Payments<span><FontAwesomeIcon className='angleUpIcon' icon={faAngleUp} /></span></div>
     } else {
       buttonClass = <div>Extra Payments<span><FontAwesomeIcon className='angleDownIcon' icon={faAngleDown} /></span></div>
@@ -38,6 +38,7 @@ export default class ExtraPayments extends Component {
           onClick={() => this.context.handleSetShowExtraPayments(!this.context.showExtraPayments)}
           buttonText={buttonClass}
           buttonClass={'showExtraPaymentsButton'}
+          buttonType={'button'}
         />
         {this.context.showExtraPayments &&
         <div>
@@ -45,20 +46,26 @@ export default class ExtraPayments extends Component {
             inputType={'text'}
             inputId={'extraMonthlyPayment'}
             inputName={'extraMonthlyPayment'}
+            inputClass={'loanCalcInput'}
             labelText={'Extra Monthly Payment'}
             value={this.state.extraMonthlyPayment}
             onChange={this.onInputChangeDollar}
             inputContainerClass={'extraMonthlyPaymentInputContainer'}
+            labelClass={'loanCalcLabel'}
+            placeholder={'Extra Monthly Payment'}
           />
           <div className='extraYearlyPaymentContainer'>
             <Input
               inputType={'text'}
               inputId={'extraYearlyPayment'}
               inputName={'extraYearlyPayment'}
+              inputClass={'loanCalcInput'}
               labelText={'Extra Annual Payment'}
               value={this.state.extraYearlyPayment}
               onChange={this.onInputChangeDollar}
               inputContainerClass={'extraYearlyPaymentInputContainer'}
+              labelClass={'loanCalcLabel'}
+              placeholder={'Extra Annual Payment'}
             />
             <div className='selectContainer'>
               <p>In:</p>
@@ -74,10 +81,13 @@ export default class ExtraPayments extends Component {
               inputType={'text'}
               inputId={'extraOneTimePayment'}
               inputName={'extraOneTimePayment'}
+              inputClass={'loanCalcInput'}
               labelText={'Extra One-time Payment'}
               value={this.state.extraOneTimePayment}
               onChange={this.onInputChangeDollar}
               inputContainerClass={'extraOneTimePaymentInputContainer'}
+              labelClass={'loanCalcLabel'}
+              placeholder={'Extra One-time Payment'}
             />
             <div className='selectContainer'>
               <p>In:</p>
@@ -90,6 +100,7 @@ export default class ExtraPayments extends Component {
                 selectId={'extraOneTimePaymentYear'}
                 selectName={'extraOneTimePaymentYear'}
                 options={this.context.selectYears}
+                selectClass={'yearSelect'}
               />
             </div>
           </div>
