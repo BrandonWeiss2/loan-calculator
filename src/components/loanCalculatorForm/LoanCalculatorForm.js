@@ -112,7 +112,7 @@ export default class LoanCalculatorForm extends Component {
       type: "doughnut",
       data: {
         //Bring in data
-        labels: ["Princiapl", "Interest"],
+        labels: ["Principal", "Interest"],
         datasets: [
           {
             data: [totalPrincipal, totalInterest],
